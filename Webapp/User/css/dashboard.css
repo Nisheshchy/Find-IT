@@ -1,0 +1,212 @@
+/* ==========================================================================
+   dashboard.css — Minimal, Spacious Dashboard
+   ========================================================================== */
+
+/* ── Page Header ── */
+.page-header {
+  margin-bottom: var(--space-7);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-2);
+}
+
+.page-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Stat Cards ── */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.stat-cards.two-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--dur-base) var(--ease-out);
+}
+
+.stat-card:hover {
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.stat-number {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Data Tables ── */
+.table-section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+}
+
+.table-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 14px var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+.data-table th {
+  background: var(--off-white);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.data-table tbody tr {
+  animation: fadeUp var(--dur-base) var(--ease-out) both;
+  transition: background var(--dur-instant) var(--ease-out);
+}
+
+.data-table tbody tr:hover {
+  background: var(--off-white);
+}
+
+/* Stagger table row entrance */
+.data-table tbody tr:nth-child(1) { animation-delay: 0ms; }
+.data-table tbody tr:nth-child(2) { animation-delay: 40ms; }
+.data-table tbody tr:nth-child(3) { animation-delay: 80ms; }
+.data-table tbody tr:nth-child(4) { animation-delay: 120ms; }
+.data-table tbody tr:nth-child(5) { animation-delay: 160ms; }
+.data-table tbody tr:nth-child(6) { animation-delay: 200ms; }
+.data-table tbody tr:nth-child(7) { animation-delay: 240ms; }
+.data-table tbody tr:nth-child(8) { animation-delay: 280ms; }
+.data-table tbody tr:nth-child(9) { animation-delay: 320ms; }
+.data-table tbody tr:nth-child(10) { animation-delay: 360ms; }
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table td {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+/* ── Inline Confirm ── */
+.inline-confirm {
+  display: flex;
+  align-items: center;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--dur-fast) var(--ease-out) both;
+}
+
+/* ── Table Actions ── */
+.table-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.action-link {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.action-link:hover {
+  background: var(--off-white);
+  color: var(--accent-hover);
+}
+
+.action-delete {
+  color: var(--error);
+}
+
+.action-delete:hover {
+  background: var(--error-bg);
+  color: #A93226;
+}
+
+/* ── Status Select ── */
+.status-select {
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--off-white);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.status-select:focus {
+  border-color: var(--text-primary);
+}
