@@ -1,0 +1,162 @@
+responsive.css/* ==========================================================================
+   responsive.css
+   ========================================================================== */
+
+/* Tablet Breakpoint (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .item-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-sidebar {
+    width: 200px;
+  }
+  .admin-main {
+    margin-left: 200px;
+    padding: var(--space-6);
+  }
+}
+
+/* Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+
+  /* Mobile Navbar via JS implementation */
+  .mobile-menu-btn {
+    display: flex; /* Overtake block */
+  }
+
+  .mobile-menu-panel {
+    display: block;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 var(--space-5);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--dur-slow) var(--ease-in-out), opacity var(--dur-base) var(--ease-out);
+    opacity: 0;
+  }
+
+  .mobile-menu-panel.is-open {
+    max-height: 400px;
+    opacity: 1;
+    padding-bottom: var(--space-5);
+  }
+
+  .mobile-menu-panel a {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transform: translateX(-8px);
+    opacity: 0;
+    transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out);
+  }
+
+  .mobile-menu-panel.is-open a {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Stagger JS navlinks manually without loops */
+  .mobile-menu-panel a:nth-child(1) { transition-delay: 0ms; }
+  .mobile-menu-panel a:nth-child(2) { transition-delay: 40ms; }
+  .mobile-menu-panel a:nth-child(3) { transition-delay: 80ms; }
+  .mobile-menu-panel a:nth-child(4) { transition-delay: 120ms; }
+  .mobile-menu-panel a:nth-child(5) { transition-delay: 160ms; }
+  .mobile-menu-panel a:nth-child(6) { transition-delay: 200ms; }
+
+  .mobile-menu-panel a:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-user {
+    padding: var(--space-4) 0 0 0;
+    border-left: none;
+    border-top: 1px solid var(--border-light);
+    margin-top: var(--space-2);
+    justify-content: space-between;
+  }
+  
+  .btn-login-nav {
+    display: block !important;
+    margin-top: var(--space-4);
+    text-align: center;
+    border-bottom: none !important;
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    transition-delay: 0ms !important;
+  }
+
+  /* Typography Adjustments */
+  :root {
+    --text-3xl: 42px;
+    --text-2xl: 32px;
+    --text-xl: 26px;
+    --text-lg: 20px;
+  }
+
+  /* Home page responsive rules are in home.css */
+
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: var(--space-6) var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Force Full-bleed forms on very small screens */
+  @media (max-width: 480px) {
+    .form-card {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+    .container {
+      padding: 0 var(--space-4);
+    }
+  }
+
+  /* Admin Layout */
+  .admin-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: var(--space-4);
+  }
+  .admin-main {
+    margin-left: 0;
+    padding: var(--space-5) var(--space-4);
+  }
+  .admin-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  
+  /* Tables on Mobile */
+  .table-wrapper {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
